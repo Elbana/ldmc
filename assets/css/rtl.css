@@ -107,3 +107,13 @@
   font-weight: 600;
   line-height: 1.5;
 }
+
+/* Mobile nav — slide from LEFT in RTL */
+[dir="rtl"] .mobile-nav {
+  right: auto;
+  left: 0;
+  border-left: none;
+  border-right: 1px solid rgba(255,255,255,0.08);
+  transform: translateX(-100%);
+}
+[dir="rtl"] .mobile-nav.open { transform: translateX(0); }
