@@ -269,10 +269,10 @@ p  { line-height: 1.75; }
   flex-shrink: 0;
 }
 .site-logo img {
-  height: 46px;
+  height: 64px;
   width: auto;
   object-fit: contain;
-  border-radius: 6px;
+  filter: drop-shadow(0 0 4px rgba(255,255,255,0.65)) drop-shadow(0 0 1px rgba(255,255,255,0.9));
 }
 
 /* Nav */
@@ -756,11 +756,11 @@ p  { line-height: 1.75; }
   margin-bottom: var(--space-12);
 }
 .footer-brand img {
-  height: 56px;
+  height: 72px;
   width: auto;
   object-fit: contain;
   margin-bottom: var(--space-5);
-  filter: brightness(0) invert(1);
+  filter: drop-shadow(0 0 4px rgba(255,255,255,0.65)) drop-shadow(0 0 1px rgba(255,255,255,0.9));
 }
 .footer-tagline {
   font-family: var(--font-serif);
