@@ -427,7 +427,7 @@ p  { line-height: 1.75; }
 .hero-bg {
   position: absolute;
   inset: 0;
-  background-image: url('../images/stones/stone-texture-calacatta-white-marble.png');
+  background-image: url('../images/background.png');
   background-size: cover;
   background-position: center;
   opacity: 0.35;
