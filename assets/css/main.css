@@ -359,28 +359,39 @@ p  { line-height: 1.75; }
 /* Mobile Nav Drawer */
 .mobile-nav {
   position: fixed;
-  inset: 0;
+  top: 0; right: 0;
+  width: min(300px, 82vw);
+  height: 100dvh;
   background: var(--black);
   z-index: 999;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-8);
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 90px var(--space-8) var(--space-8);
+  gap: 0;
   transform: translateX(100%);
   transition: transform var(--duration-slow) var(--ease-out);
+  border-left: 1px solid rgba(255,255,255,0.08);
+  overflow-y: auto;
 }
 .mobile-nav.open { transform: translateX(0); }
 .mobile-nav a {
-  font-family: var(--font-serif);
-  font-size: 2.5rem;
-  font-weight: 400;
-  color: var(--white);
-  transition: color var(--duration) var(--ease);
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.8);
+  padding: var(--space-4) 0;
+  width: 100%;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  transition: color var(--duration-fast) var(--ease);
 }
-.mobile-nav a:hover { color: var(--gold); }
+.mobile-nav a:hover, .mobile-nav a.active { color: var(--gold); }
 .mobile-nav .lang-switcher {
-  border-color: rgba(255,255,255,0.3);
+  margin-top: var(--space-6);
+  border-color: rgba(255,255,255,0.2);
 }
 
 /* ── Hero Section ─────────────────────────────────────────── */
