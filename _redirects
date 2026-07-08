@@ -2,7 +2,3 @@
 
 # Root → English home
 /             /en/            301
-
-# Redirect bare language paths
-/en           /en/            301
-/ar           /ar/            301
