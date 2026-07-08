@@ -108,6 +108,28 @@
   line-height: 1.5;
 }
 
+/* Arabic letter-spacing & text-transform reset
+   Arabic script MUST have letter-spacing: 0 or letters disconnect visually.
+   text-transform has no effect on Arabic but can cause issues on mixed content. */
+[dir="rtl"] * {
+  letter-spacing: 0 !important;
+}
+[dir="rtl"] .btn,
+[dir="rtl"] .section-label,
+[dir="rtl"] .hero-eyebrow,
+[dir="rtl"] .main-nav a,
+[dir="rtl"] .mobile-nav a,
+[dir="rtl"] .lang-switcher a,
+[dir="rtl"] .product-card-category,
+[dir="rtl"] .product-card-badge,
+[dir="rtl"] .filter-btn,
+[dir="rtl"] .footer-heading,
+[dir="rtl"] .form-group label,
+[dir="rtl"] .product-specs h5,
+[dir="rtl"] .uppercase {
+  text-transform: none;
+}
+
 /* Mobile nav — slide from LEFT in RTL */
 [dir="rtl"] .mobile-nav {
   right: auto;
