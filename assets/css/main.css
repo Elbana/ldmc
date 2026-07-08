@@ -347,14 +347,26 @@ p  { line-height: 1.75; }
 }
 .menu-toggle span {
   display: block;
-  height: 1.5px;
-  background: var(--white);
+  height: 2px;
+  background: var(--gold);
+  border-radius: 1px;
   transition: all var(--duration) var(--ease);
   transform-origin: center;
 }
 .menu-toggle.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
 .menu-toggle.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
 .menu-toggle.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+/* Mobile Nav Overlay */
+.mobile-nav-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 998;
+  cursor: pointer;
+}
+.mobile-nav-overlay.open { display: block; }
 
 /* Mobile Nav Drawer */
 .mobile-nav {

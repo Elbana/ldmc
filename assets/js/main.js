@@ -26,28 +26,38 @@
   const menuToggle = document.querySelector('.menu-toggle');
   const mobileNav  = document.querySelector('.mobile-nav');
   if (menuToggle && mobileNav) {
+    // Create overlay for tap-outside-to-close
+    const navOverlay = document.createElement('div');
+    navOverlay.className = 'mobile-nav-overlay';
+    document.body.appendChild(navOverlay);
+
+    function openMobileMenu() {
+      menuToggle.classList.add('open');
+      mobileNav.classList.add('open');
+      navOverlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      menuToggle.setAttribute('aria-expanded', 'true');
+    }
+    function closeMobileMenu() {
+      menuToggle.classList.remove('open');
+      mobileNav.classList.remove('open');
+      navOverlay.classList.remove('open');
+      document.body.style.overflow = '';
+      menuToggle.setAttribute('aria-expanded', 'false');
+    }
+
     menuToggle.addEventListener('click', () => {
-      const isOpen = menuToggle.classList.toggle('open');
-      mobileNav.classList.toggle('open', isOpen);
-      document.body.style.overflow = isOpen ? 'hidden' : '';
-      menuToggle.setAttribute('aria-expanded', isOpen);
+      menuToggle.classList.contains('open') ? closeMobileMenu() : openMobileMenu();
     });
+    // Close on overlay tap (outside menu)
+    navOverlay.addEventListener('click', closeMobileMenu);
     // Close on link click
     mobileNav.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => {
-        menuToggle.classList.remove('open');
-        mobileNav.classList.remove('open');
-        document.body.style.overflow = '';
-        menuToggle.setAttribute('aria-expanded', 'false');
-      });
+      a.addEventListener('click', closeMobileMenu);
     });
     // Close on Escape
     document.addEventListener('keydown', e => {
-      if (e.key === 'Escape' && mobileNav.classList.contains('open')) {
-        menuToggle.classList.remove('open');
-        mobileNav.classList.remove('open');
-        document.body.style.overflow = '';
-      }
+      if (e.key === 'Escape' && mobileNav.classList.contains('open')) closeMobileMenu();
     });
   }
 
