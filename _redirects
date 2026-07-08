@@ -1,0 +1,8 @@
+# Cloudflare Pages redirect rules
+
+# Root → English home
+/             /en/            302
+
+# Redirect bare language paths
+/en           /en/            301
+/ar           /ar/            301

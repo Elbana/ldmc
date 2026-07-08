@@ -1,0 +1,33 @@
+# Original source photos (already processed into assets/images/)
+gallary/
+
+# Dependency folders
+node_modules/
+.npm/
+
+# Build outputs
+dist/
+build/
+.next/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/settings.json
+*.swp
+*.swo
+
+# Environment / secrets
+.env
+.env.local
+.env*.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# Dev tools
+serve.ps1

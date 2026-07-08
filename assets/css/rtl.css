@@ -1,0 +1,109 @@
+/* ============================================================
+   LDMC — RTL Overrides for Arabic (dir="rtl")
+   ============================================================ */
+
+[dir="rtl"] {
+  /* Font override */
+  --font-serif: 'Cairo', 'Noto Naskh Arabic', serif;
+  --font-sans:  'Cairo', system-ui, sans-serif;
+}
+
+/* Typography */
+[dir="rtl"] body { font-family: var(--font-sans); }
+[dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3,
+[dir="rtl"] h4, [dir="rtl"] h5, [dir="rtl"] h6 {
+  font-family: 'Cairo', sans-serif;
+  letter-spacing: 0;
+  font-weight: 700;
+}
+
+/* Section Label */
+[dir="rtl"] .section-label::before { order: 1; }
+[dir="rtl"] .section-label::after  { order: -1; }
+
+/* Header */
+[dir="rtl"] .main-nav a::after { left: auto; right: 0; }
+[dir="rtl"] .lang-switcher a + a {
+  border-left: none;
+  border-right: 1px solid rgba(255,255,255,0.25);
+}
+
+/* Hero eyebrow */
+[dir="rtl"] .hero-eyebrow::before { display: none; }
+[dir="rtl"] .hero-eyebrow::after {
+  content: '';
+  display: inline-block;
+  width: 40px;
+  height: 1px;
+  background: var(--gold);
+}
+
+/* AOS fade directions */
+[dir="rtl"] [data-aos="fade-right"] { transform: translateX(24px); }
+[dir="rtl"] [data-aos="fade-left"]  { transform: translateX(-24px); }
+
+/* Product cards */
+[dir="rtl"] .product-card-badge { left: auto; right: var(--space-4); }
+[dir="rtl"] .product-card-link { flex-direction: row-reverse; }
+[dir="rtl"] .product-card-link svg { transform: scaleX(-1); }
+
+/* Footer */
+[dir="rtl"] .footer-contact-item { flex-direction: row; }
+
+/* Value cards */
+[dir="rtl"] .value-card { border-left: none; border-right: 3px solid var(--gold); }
+[dir="rtl"] .value-card:hover { transform: translateX(-4px); }
+
+/* Service cards */
+[dir="rtl"] .service-card::before { transform-origin: right; }
+
+/* Page Hero breadcrumb */
+[dir="rtl"] .page-hero .breadcrumb { flex-direction: row-reverse; }
+
+/* Contact form */
+[dir="rtl"] .form-group label { text-align: right; }
+
+/* Stats */
+[dir="rtl"] .stat-label { letter-spacing: 0; }
+
+/* Text alignment helpers for RTL */
+[dir="rtl"] .text-center { text-align: center; }
+
+/* Button arrows */
+[dir="rtl"] .btn svg { transform: scaleX(-1); }
+
+/* Filter tabs — keep LTR order visually */
+[dir="rtl"] .filter-tabs { flex-direction: row-reverse; }
+
+/* Inputs */
+[dir="rtl"] .form-group input,
+[dir="rtl"] .form-group textarea,
+[dir="rtl"] .form-group select {
+  text-align: right;
+}
+
+/* WhatsApp button (mirror to left side) */
+[dir="rtl"] .whatsapp-btn {
+  right: auto;
+  left: var(--space-8);
+}
+@media (max-width: 768px) {
+  [dir="rtl"] .whatsapp-btn {
+    right: auto;
+    left: var(--space-6);
+  }
+}
+
+/* Cairo font at larger sizes for headings */
+[dir="rtl"] .section-heading {
+  font-weight: 700;
+  line-height: 1.4;
+}
+[dir="rtl"] .hero h1 {
+  line-height: 1.3;
+  font-weight: 600;
+}
+[dir="rtl"] .product-card-title {
+  font-weight: 600;
+  line-height: 1.5;
+}

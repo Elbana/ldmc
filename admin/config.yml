@@ -1,0 +1,55 @@
+backend:
+  name: github
+  repo: YOUR_GITHUB_USERNAME/ldmc-website   # ← replace with your GitHub repo
+  branch: main
+
+media_folder: assets/images/gallery
+public_folder: /assets/images/gallery
+
+# Cloudflare Pages uses GitHub OAuth — no Netlify Identity needed
+# Set up OAuth app at: GitHub Settings → Developer settings → OAuth Apps
+# Authorization callback URL: https://api.netlify.com/auth/done
+# Then add OAUTH_CLIENT_ID and OAUTH_CLIENT_SECRET to Cloudflare Pages env vars
+
+collections:
+  - name: products
+    label: Products / المنتجات
+    folder: _data/products
+    create: true
+    slug: "{{fields.slug}}"
+    fields:
+      - { label: "Slug (URL-friendly)", name: slug, widget: string }
+      - { label: "Name (EN)", name: name_en, widget: string }
+      - { label: "Name (AR)", name: name_ar, widget: string }
+      - { label: "Category", name: category, widget: select, options: [vasques, cuisine, salle-de-bain, escalier, cladding] }
+      - { label: "Description (EN)", name: description_en, widget: text }
+      - { label: "Description (AR)", name: description_ar, widget: text }
+      - { label: "Image", name: image, widget: image }
+      - { label: "Featured", name: featured, widget: boolean, default: false }
+      - { label: "Badge (EN)", name: badge_en, widget: string, required: false }
+      - { label: "Badge (AR)", name: badge_ar, widget: string, required: false }
+
+  - name: gallery
+    label: Gallery / المعرض
+    folder: _data/gallery
+    create: true
+    slug: "{{fields.slug}}"
+    fields:
+      - { label: "Slug", name: slug, widget: string }
+      - { label: "Image", name: image, widget: image }
+      - { label: "Caption (EN)", name: caption_en, widget: string }
+      - { label: "Caption (AR)", name: caption_ar, widget: string }
+      - { label: "Category", name: category, widget: select, options: [real-work, vasques, cuisine, salle-de-bain, cladding, stones] }
+
+  - name: settings
+    label: Site Settings
+    files:
+      - label: "Contact Info"
+        name: contact
+        file: _data/contact.json
+        fields:
+          - { label: "Phone", name: phone, widget: string }
+          - { label: "WhatsApp Number (international)", name: whatsapp, widget: string }
+          - { label: "Instagram URL", name: instagram, widget: string }
+          - { label: "Address (EN)", name: address_en, widget: string }
+          - { label: "Address (AR)", name: address_ar, widget: string }
