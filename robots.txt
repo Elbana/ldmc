@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ldmc.ma/sitemap.xml
+Sitemap: https://ldmc-marble.com/sitemap.xml
