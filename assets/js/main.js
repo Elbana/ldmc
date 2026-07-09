@@ -212,7 +212,7 @@
 
       const serviceId  = 'service_v91kv5c';
       const templateId = 'template_8g90x1p';
-      const publicKey  = 'YOUR_EMAILJS_PUBLIC_KEY';
+      const publicKey  = 'qM-USvXIqzUNbVy1P';
 
       const params = {
         from_name:  contactForm.querySelector('[name="name"]')?.value,
