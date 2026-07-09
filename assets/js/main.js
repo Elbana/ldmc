@@ -210,8 +210,8 @@
         submitBtn.textContent = submitBtn.dataset.sending || 'Sending...';
       }
 
-      const serviceId  = 'YOUR_EMAILJS_SERVICE_ID';
-      const templateId = 'YOUR_EMAILJS_TEMPLATE_ID';
+      const serviceId  = 'service_v91kv5c';
+      const templateId = 'template_8g90x1p';
       const publicKey  = 'YOUR_EMAILJS_PUBLIC_KEY';
 
       const params = {
