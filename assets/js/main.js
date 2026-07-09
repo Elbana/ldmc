@@ -215,11 +215,11 @@
       const publicKey  = 'qM-USvXIqzUNbVy1P';
 
       const params = {
-        from_name:  contactForm.querySelector('[name="name"]')?.value,
-        from_email: contactForm.querySelector('[name="email"]')?.value,
-        phone:      contactForm.querySelector('[name="phone"]')?.value,
-        message:    contactForm.querySelector('[name="message"]')?.value,
-        subject:    contactForm.querySelector('[name="subject"]')?.value || 'Website inquiry',
+        name:    contactForm.querySelector('[name="name"]')?.value,
+        email:   contactForm.querySelector('[name="email"]')?.value,
+        phone:   contactForm.querySelector('[name="phone"]')?.value,
+        message: contactForm.querySelector('[name="message"]')?.value,
+        subject: contactForm.querySelector('[name="subject"]')?.value || 'Website inquiry',
       };
 
       try {
