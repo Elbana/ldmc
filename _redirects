@@ -1,4 +1,2 @@
-# Cloudflare Pages redirect rules
-
-# Root → English home
-/             /en/            301
+# MAINTENANCE MODE — redirect everything to maintenance page
+/*            /maintenance.html    302
