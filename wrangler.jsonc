@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "ldmc-website",
+  "name": "ldmc",
   "compatibility_date": "2026-07-08",
   "main": "worker.js", // ← maintenance mode ON. Remove this line to restore the site.
   "assets": {
