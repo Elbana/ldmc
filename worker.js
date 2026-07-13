@@ -1,0 +1,63 @@
+/**
+ * Maintenance mode Worker
+ *
+ * Returns HTTP 503 + Retry-After for every request.
+ * Google (and all crawlers) will keep the site in the index and retry later.
+ *
+ * To re-enable the site:
+ *   1. Remove the "main" line from wrangler.jsonc  (or delete this file)
+ *   2. Re-deploy: npx wrangler deploy
+ */
+
+const RETRY_AFTER_SECONDS = 86400; // 24 hours — adjust as needed
+
+const HTML = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Down for Maintenance</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background: #f5f5f5;
+      color: #333;
+    }
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 3rem 4rem;
+      text-align: center;
+      box-shadow: 0 4px 24px rgba(0,0,0,.08);
+      max-width: 480px;
+    }
+    h1 { font-size: 1.6rem; margin-bottom: 1rem; }
+    p  { line-height: 1.6; color: #555; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>We'll be back soon</h1>
+    <p>Our website is currently undergoing scheduled maintenance.<br>
+       Please check back later.</p>
+  </div>
+</body>
+</html>`;
+
+export default {
+  async fetch(_request, _env, _ctx) {
+    return new Response(HTML, {
+      status: 503,
+      headers: {
+        "Content-Type": "text/html; charset=utf-8",
+        "Retry-After": String(RETRY_AFTER_SECONDS),
+        "Cache-Control": "no-store",
+      },
+    });
+  },
+};
